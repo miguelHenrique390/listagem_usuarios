@@ -1,0 +1,304 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #eaf4f4,
+        #f5f8f7
+    );
+
+    color: #263b42;
+
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   CONTAINER DA QUESTÃO
+================================ */
+
+.prova-container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 40px 0 60px;
+}
+
+
+/* ==============================
+   TÍTULO
+================================ */
+
+.prova-container h1 {
+    text-align: center;
+
+    color: #164e63;
+
+    font-size: 38px;
+
+    margin-bottom: 35px;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ==============================
+   CARTÃO DA QUESTÃO
+================================ */
+
+.questao {
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 35px 40px;
+
+    box-shadow:
+        0 5px 20px rgba(30, 70, 80, 0.10);
+
+    border-top: 5px solid #3a8d7c;
+}
+
+
+/* ==============================
+   TEXTO DA QUESTÃO
+================================ */
+
+.contexto {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #344e57;
+
+    margin-bottom: 25px;
+
+    text-align: justify;
+}
+
+
+/* ==============================
+   INTRODUÇÃO DAS ALTERNATIVAS
+================================ */
+
+.introducao {
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    color: #164e63;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==============================
+   ALTERNATIVAS
+================================ */
+
+.alternativas {
+    list-style-type: upper-alpha;
+
+    padding-left: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+/* Cada alternativa */
+
+.alternativas li {
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    padding: 14px 18px;
+
+    margin-bottom: 10px;
+
+    background-color: #f3f8f7;
+
+    border: 1px solid #dce9e6;
+
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.alternativas li:hover {
+    background-color: #e7f2ef;
+
+    border-color: #8bbdb2;
+
+    transform: translateX(4px);
+}
+
+
+/* ==============================
+   ÁREA DOS BOTÕES
+================================ */
+
+.botoes {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding-top: 10px;
+
+    border-top: 1px solid #e1e9eb;
+}
+
+
+/* ==============================
+   BOTÕES
+================================ */
+
+.botoes button {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Botão Ver Resposta */
+
+.botao-resposta {
+    background-color: #e6b85c;
+
+    color: #ffffff;
+}
+
+.botao-resposta:hover {
+    background-color: #d39f3d;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 10px rgba(150, 110, 30, 0.20);
+}
+
+
+/* Botão avançar */
+
+.botao-avancar {
+    background-color: #3a8d7c;
+
+    color: white;
+}
+
+.botao-avancar:hover {
+    background-color: #286b5e;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 10px rgba(40, 107, 94, 0.20);
+}
+
+
+/* Botão voltar */
+
+.botao-voltar {
+    background-color: #6c858c;
+
+    color: white;
+}
+
+.botao-voltar:hover {
+    background-color: #526b72;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 10px rgba(60, 80, 90, 0.20);
+}
+
+
+/* Efeito quando clica */
+
+.botoes button:active {
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   CELULAR
+================================ */
+
+@media (max-width: 700px) {
+
+    .prova-container {
+        width: 94%;
+
+        padding-top: 25px;
+    }
+
+    .prova-container h1 {
+        font-size: 28px;
+
+        margin-bottom: 25px;
+    }
+
+    .questao {
+        padding: 25px 20px;
+    }
+
+    .contexto {
+        font-size: 16px;
+
+        text-align: left;
+    }
+
+    .introducao {
+        font-size: 17px;
+    }
+
+    .alternativas {
+        padding-left: 25px;
+    }
+
+    .alternativas li {
+        font-size: 16px;
+
+        padding: 12px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botoes button {
+        width: 100%;
+    }
+}
