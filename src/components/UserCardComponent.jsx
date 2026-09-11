@@ -1,5 +1,6 @@
 function UserCardComponent(props) {
     const usuario = props.usuario;
+    const onSelecionarUsuario = props.onSelecionarUsuario;
 
     return (
         <li className="user-card">
@@ -31,6 +32,13 @@ function UserCardComponent(props) {
                 <p>
                     📍 {usuario.address.city}
                 </p>
+
+                <button
+                onClick={() => {
+                    onSelecionarUsuario(usuario.id)
+                }}
+                >Ver Detalhes
+                </button>
 
             </div>
 

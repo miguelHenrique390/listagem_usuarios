@@ -55,6 +55,7 @@ h1 {
     background-size: 200%;
 
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 
     animation: brilho 4s linear infinite;
@@ -552,4 +553,138 @@ p:has(+ ul) {
         font-size: 13px;
     }
 
+}
+
+
+/* ==============================
+   BOTÕES
+============================== */
+
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+    background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   FORMULÁRIO
+============================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+}
+
+form input {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+form button {
+    width: 100%;
+    margin: 10px 0 0 0 !important;
+    padding: 14px;
+    font-size: 16px;
+}
+
+div > h2 {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 15px;
+    color: #c4b5fd;
+}
+
+
+/* ==============================
+   DETALHES DO USUÁRIO
+============================== */
+
+div > h2:first-of-type {
+    text-align: center;
+    font-size: 28px;
+    margin: 30px 0 20px;
+    color: #c4b5fd;
+}
+
+div:has(> button:first-of-type) {
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+}
+
+div:has(> button:first-of-type) button {
+    width: 100%;
+    margin: 0 0 20px 0 !important;
+}
+
+div:has(> button:first-of-type) p {
+    text-align: left;
+    margin: 12px 0;
+    color: #cbd5e1;
+}
+
+div:has(> button:first-of-type) strong {
+    color: #a78bfa;
+}
+
+
+/* ==============================
+   NOVO USUÁRIO CADASTRADO
+============================== */
+
+div > h2:only-of-type {
+    text-align: center;
+    font-size: 24px;
+    margin: 30px 0 15px;
+    color: #10b981;
+}
+
+div:has(> strong:only-of-type) {
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 500px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+}
+
+div:has(> strong:only-of-type) p {
+    text-align: left;
+    margin: 10px 0;
+    color: #d1fae5;
+    font-size: 15px;
 }

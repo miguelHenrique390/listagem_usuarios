@@ -7,6 +7,8 @@ function UserListComponent(props) {
                 <UserCardComponent
                     key={usuario.id}
                     usuario={usuario}
+                    onSelecionarUsuario={props.onSelecionarUsuario}
+
                 />
             ))}
         </ul>
