@@ -35,6 +35,8 @@ function App() {
     const [novoUsuario, setNovoUsuario] = useState(null)
     const [modalNovoUsuarioAberto, setModalNovoUsuarioAberto] = useState(false)
     const [mensagem, setMensagem] = useState(null)
+    const [erroExclusao, setErroExclusao] = useState(null)
+    const [usuariosExcluindo, setUsuariosExcluindo] = useState([])
 
 
     const usuariosFiltrados = usuarios
@@ -96,9 +98,54 @@ function App() {
         }
     }
 
+    async function excluirUsuario(id) {
+        const usuario = usuarios.find((item) => item.id === id)
+        if (!usuario || !window.confirm(`Deseja excluir o usuário ${usuario.name}?`)) {
+            return
+        }
+
+        setErroExclusao(null)
+        setUsuariosExcluindo((ids) => [...ids, id])
+
+        try {
+            await axios.delete(`${url}/users/${id}`)
+            setUsuarios((usuariosAtuais) =>
+                usuariosAtuais.filter((item) => item.id !== id)
+            )
+
+            if (usuarioSelecionado?.id === id) {
+                limparDetalhesUsuario()
+            }
+            if (novoUsuario?.id === id) {
+                setNovoUsuario(null)
+            }
+
+            setMensagem("Usuário excluído com sucesso!")
+        } catch (error) {
+            console.error("Erro ao excluir usuário:", error)
+            setErroExclusao(
+                `Não foi possível excluir o usuário. Código: ${error.message}`
+            )
+        } finally {
+            setUsuariosExcluindo((ids) => ids.filter((item) => item !== id))
+        }
+    }
+
     useEffect(() => {
         buscarUsuarios();
     }, []);
+
+    useEffect(() => {
+        if (!mensagem) {
+            return undefined
+        }
+
+        const timer = window.setTimeout(() => {
+            setMensagem(null)
+        }, 4000)
+
+        return () => window.clearTimeout(timer)
+    }, [mensagem])
 
 
     return (
@@ -129,6 +176,12 @@ function App() {
                 </p>
             )}
 
+            {erroExclusao && (
+                <p className="erro" role="alert">
+                    {erroExclusao}
+                </p>
+            )}
+
 
             {!carregando && !erro && (
                 <>
@@ -140,6 +193,8 @@ function App() {
                         <UserListComponent
                             usuarios={usuariosFiltrados}
                             onSelecionarUsuario={buscarUsuario}
+                            onExcluirUsuario={excluirUsuario}
+                            usuariosExcluindo={usuariosExcluindo}
                         />
                     ) : (
                         <p className="sem-resultados">

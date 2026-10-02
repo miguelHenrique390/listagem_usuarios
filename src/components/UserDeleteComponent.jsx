@@ -1,0 +1,10 @@
+function UserDeleteComponent ({ usuario }){
+return(
+
+
+
+    
+)
+
+
+}

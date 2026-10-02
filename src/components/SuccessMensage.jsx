@@ -1,6 +1,6 @@
 function SuccessMessage({ mensagem }) {
     return (
-        <p className="success-snackbar" role="status" aria-alive="polite">
+        <p className="success-snackbar" role="status" aria-live="polite">
             {mensagem}
         </p>
     )

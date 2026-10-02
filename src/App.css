@@ -191,6 +191,31 @@ body {
     font-size: 0.95rem;
 }
 
+.acoes-usuario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.acoes-usuario button {
+    cursor: pointer;
+}
+
+.botao-excluir-usuario {
+    background: #b91c1c;
+    color: #fff;
+}
+
+.botao-excluir-usuario:hover:not(:disabled) {
+    background: #991b1b;
+}
+
+.botao-excluir-usuario:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
 
 /* =========================
    Mensagem sem resultados
