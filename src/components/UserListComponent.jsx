@@ -1,18 +1,19 @@
 import UserCardComponent from "./UserCardComponent";
 
-function UserListComponent(props) {
+function UserListComponent({ usuarios, onSelecionarUsuario }) {
     return (
-        <ul>
-            {props.usuarios.map(usuario => (
+        <ul className="lista-usuarios">
+
+            {usuarios.map((usuario) => (
                 <UserCardComponent
                     key={usuario.id}
                     usuario={usuario}
-                    onSelecionarUsuario={props.onSelecionarUsuario}
-
+                    onSelecionarUsuario={onSelecionarUsuario}
                 />
             ))}
+
         </ul>
-    )
+    );
 }
 
 export default UserListComponent;

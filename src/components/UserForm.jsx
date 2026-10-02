@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function UserForm({ onCadastrar }) {
+function UserForm({ onCadastrar }){
     const [nome, setNome] = useState("")
     const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")    
+    const [email, setEmail] = useState("")
     const [telefone, setTelefone] = useState("")
 
-    function handleSubmit(evento){
+    function handleSubmit(evento) {
         evento.preventDefault()
         const novoUsuario = {
             name: nome,
@@ -20,52 +20,49 @@ function UserForm({ onCadastrar }) {
     }
 
     function limparFormulario() {
-            setNome("")
-            setUsername("")
-            setEmail("")
-            setTelefone("")
-        }
+        setNome("")
+        setUsername("")
+        setEmail("")
+        setTelefone("")
+    }
 
-
-        return(
-        <div>
-            <h2>📝 Cadastrar Novo Usuário</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" 
-                placeholder="Nome completo"
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text"
+                placeholder="Nome"
                 value={nome}
-                onChange={(evento) => { setNome(evento.target.value )}}
-    />
+                onChange={(evento) => {
+                    setNome(evento.target.value)
+                }}
+            />
 
-                <input type="text" 
-                placeholder="Usuário (username)"
+            <input type="text"
+                placeholder="Usuário"
                 value={username}
-                onChange={(evento) => { setUsername(evento.target.value )}}
-                
-    />
+                onChange={(evento) => {
+                    setUsername(evento.target.value)
+                }}
+            />
 
-                <input type="email" 
+            <input type="email"
                 placeholder="E-mail"
                 value={email}
-                onChange={(evento) => { setEmail(evento.target.value )}}
-                
-    />
+                onChange={(evento) => {
+                    setEmail(evento.target.value)
+                }}
+            />
 
-                <input type="text" 
+            <input type="text"
                 placeholder="Telefone"
                 value={telefone}
-                onChange={(evento) => { setTelefone(evento.target.value )}}
-    />
+                onChange={(evento) => {
+                    setTelefone(evento.target.value)
+                }}
+            />
 
-                <button type="submit">➕ Cadastrar</button>
-
-            </form>
-        </div>
-
-
-
-        )
-
+            <button type="submit">Cadastrar</button>
+        </form>
+    )
 }
 
 export default UserForm

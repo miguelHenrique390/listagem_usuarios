@@ -1,26 +1,19 @@
-
-
-function HeaderComponent(props) {
+function HeaderComponent({ busca, setBusca }) {
     return (
-    
-        <header className="app-header">
-            <div className="header-content">
-
-            <h1>
-                Catalogo de usuarios
+        <header>
+            <h1 className="titulo">
+                Catálogo de Usuários
             </h1>
 
-                <span>Veja os usuarios presentes no sistema!</span>
-
-
             <input
+                className="campo-busca"
                 type="text"
-                placeholder="filtrar usuarios..."
-                value={props.busca}
-                onChange={(evento) => { props.setBusca(evento.target.value) }}
+                placeholder="Filtrar usuário..."
+                value={busca}
+                onChange={(evento) => {
+                    setBusca(evento.target.value)
+                }}
             />
-
-            </div>
         </header>
     );
 }

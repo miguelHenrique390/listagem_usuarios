@@ -1,7 +1,9 @@
 function LoadingComponent() {
     return (
-        <p>Carregando usuarios...</p>
-    )
+        <p className="carregando">
+            Carregando usuários...
+        </p>
+    );
 }
 
 export default LoadingComponent;

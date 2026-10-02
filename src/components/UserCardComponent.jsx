@@ -1,49 +1,31 @@
-function UserCardComponent(props) {
-    const usuario = props.usuario;
-    const onSelecionarUsuario = props.onSelecionarUsuario;
-
+function UserCardComponent({ usuario, onSelecionarUsuario }) {
     return (
-        <li className="user-card">
+        <li className="card-usuario">
 
-            <div className="user-avatar">
+            <div className="avatar">
                 {usuario.name.charAt(0)}
             </div>
 
-            <div className="user-info">
+            <h2 className="nome-usuario">
+                {usuario.name}
+            </h2>
 
-                <h2>{usuario.name}</h2>
+            <p className="username">
+                @{usuario.username}
+            </p>
 
-                <p className="username">
-                    @{usuario.username}
-                </p>
+            <p className="email">
+                {usuario.email}
+            </p>
 
-                <p>
-                    ✉️ {usuario.email}
-                </p>
-
-                <p>
-                    📞 {usuario.phone}
-                </p>
-
-                <p>
-                    🌐 {usuario.website}
-                </p>
-
-                <p>
-                    📍 {usuario.address.city}
-                </p>
-
-                <button
+            <button 
                 onClick={() => {
                     onSelecionarUsuario(usuario.id)
                 }}
-                >Ver Detalhes
-                </button>
-
-            </div>
+            >Ver detalhes</button>
 
         </li>
     );
 }
 
-export default UserCardComponent;
+export default UserCardComponent; 
